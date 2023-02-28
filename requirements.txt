@@ -1,0 +1,3 @@
+library-infrastructure==12.0.4
+    # via
+    #   -r ./requirements_dev.in
