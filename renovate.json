@@ -2,5 +2,46 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
-  ]
+  ],
+  "enabledManagers": [
+    "pip-compile"
+  ],
+  "pip-compile": {
+    "fileMatch": [
+      "requirements.in"
+    ]
+  },
+  "hostRules": [
+    {
+      "hostType": "pypi",
+      "matchHost": "https://thm.jfrog.io",
+      "username": "renovate-bot-ro",
+      "encrypted": {
+        "password": "jV5UqGQJtz1hDFLVR45hEOT6+lN6GFOFrt5FyjyhZl59/DGgqISlPJ1os3AU8Y8DsYMM1m5XwRx5p50fPj99pKa94kbPnJyJYGSkJXAzH7aEO/4dOYKeEUTHlqEszARQuZQQDXkaU+9pVbzbe0auOSQJedGlydJb9DOS2mu9v2erehdKGrx6bhBGavoif2ol2kOd63DOVGfQX8uBAUw0+Lr+w4/Y6KRin4qtWUUPY6j/mIXffv7b3bK54E7/1czT/3mtZ9Yx1r+e43y+GL4OLFIG2kXr/MVlRJJpcXSMZE7TFV/ubPReipqPJPYwV0TLD17FV/6NKuVOx6wNvBPDpg=="
+      }
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Disable Python packages by default",
+      "matchManagers": [
+        "pip-compile"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Enable Private Python packages",
+      "matchManagers": [
+        "pip-compile"
+      ],
+      "matchPackageNames": [
+        "library-infrastructure"
+      ],
+      "registryUrls": [
+        "https://thm.jfrog.io/thm/api/pypi/th-pip-prod/simple"
+      ],
+      "enabled": true
+    }
+  ],
+  "rangeStrategy": "bump"
 }
