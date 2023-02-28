@@ -1,0 +1,1 @@
+This is a [minimal reproduction](https://github.com/renovatebot/renovate/blob/main/docs/development/minimal-reproductions.md) for pip-compile's support of additional registryUrls and private registries.
